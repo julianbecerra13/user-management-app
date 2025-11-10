@@ -1,0 +1,36 @@
+name: user_management_app
+description: Aplicación de gestión de usuarios con Flutter
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  provider: ^6.1.1
+
+  # Persistencia de datos
+  shared_preferences: ^2.2.2
+
+  # Selección de país, estado y ciudad
+  csc_picker: ^0.2.7
+
+  # Formateo de fechas
+  intl: ^0.19.0
+
+  # UI
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Linter y análisis de código
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
