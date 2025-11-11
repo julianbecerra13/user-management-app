@@ -38,14 +38,6 @@ class AppTheme {
         elevation: 2,
         centerTitle: true,
       ),
-      cardTheme: CardTheme(
-        color: cardBackground,
-        elevation: 2,
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-      ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: Colors.white,

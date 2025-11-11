@@ -107,7 +107,9 @@ void main() {
     });
 
     test('User age debe calcular edad correctamente', () {
-      final birthDate = DateTime.now().subtract(const Duration(days: 365 * 25));
+      // Crear una fecha hace exactamente 25 años
+      final now = DateTime.now();
+      final birthDate = DateTime(now.year - 25, now.month, now.day);
       final user = User(
         id: '1',
         firstName: 'Juan',

@@ -65,8 +65,7 @@ lib/
 - **Flutter**: Framework de desarrollo móvil
 - **Provider**: Gestión de estado
 - **SharedPreferences**: Persistencia de datos local
-- **CSC Picker**: Selector de país, estado y ciudad
-- **Intl**: Formateo de fechas
+- **Intl**: Formateo de fechas y localización
 
 ## Instalación y Ejecución
 
@@ -179,7 +178,7 @@ test/
 
 1. **Provider vs Bloc**: Se eligió Provider por su simplicidad y ser la solución recomendada oficialmente
 2. **SharedPreferences**: Suficiente para el alcance del proyecto, fácil de migrar a SQLite si se requiere
-3. **CSC Picker**: Proporciona datos reales de ubicaciones geográficas
+3. **Widget Personalizado de Ubicaciones**: Implementado LocationPicker con datos de países de Latinoamérica y España
 4. **Clean Architecture**: Facilita mantenibilidad y testing
 
 ## Mejoras Futuras

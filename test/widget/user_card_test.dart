@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:user_management_app/data/models/user.dart';
 import 'package:user_management_app/data/models/address.dart';
 import 'package:user_management_app/presentation/widgets/user_card.dart';
 
 void main() {
+  // Inicializar locale data para los tests
+  setUpAll(() async {
+    await initializeDateFormatting('es_ES', null);
+  });
   group('UserCard Widget Tests', () {
     testWidgets('debe mostrar información del usuario correctamente',
         (WidgetTester tester) async {

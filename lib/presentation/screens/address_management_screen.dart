@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:csc_picker/csc_picker.dart';
 import '../../data/models/address.dart';
 import '../../data/models/user.dart';
 import '../../core/constants/app_constants.dart';
 import '../../core/constants/app_theme.dart';
 import '../../core/utils/id_generator.dart';
-import '../../core/utils/validators.dart';
 import '../providers/user_provider.dart';
 import '../widgets/address_card.dart';
 import '../widgets/empty_state.dart';
+import '../widgets/location_picker.dart';
 
 /// Pantalla de gestión de direcciones
 /// Permite ver, agregar y eliminar direcciones de un usuario
@@ -186,7 +185,7 @@ class _AddAddressDialogState extends State<AddAddressDialog> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     // Selector de país, estado y ciudad
-                    CSCPicker(
+                    LocationPicker(
                       onCountryChanged: (country) {
                         setState(() {
                           _selectedCountry = country;
@@ -202,12 +201,9 @@ class _AddAddressDialogState extends State<AddAddressDialog> {
                           _selectedCity = city;
                         });
                       },
-                      countrySearchPlaceholder: "Buscar país",
-                      stateSearchPlaceholder: "Buscar departamento",
-                      citySearchPlaceholder: "Buscar municipio",
-                      countryDropdownLabel: AppConstants.countryLabel,
-                      stateDropdownLabel: AppConstants.stateLabel,
-                      cityDropdownLabel: AppConstants.cityLabel,
+                      countryLabel: AppConstants.countryLabel,
+                      stateLabel: AppConstants.stateLabel,
+                      cityLabel: AppConstants.cityLabel,
                     ),
                   ],
                 ),

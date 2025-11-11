@@ -90,8 +90,17 @@ void main() {
         ),
       );
 
+      // Verificar que el campo existe
+      expect(find.byType(TextFormField), findsOneWidget);
+
+      // En campos de solo lectura, intentar escribir no debería funcionar
+      await tester.tap(find.byType(TextFormField));
+      await tester.enterText(find.byType(TextFormField), 'test');
+      await tester.pump();
+
+      // El texto no debería cambiar porque es readOnly
       final textField = tester.widget<TextFormField>(find.byType(TextFormField));
-      expect(textField.readOnly, isTrue);
+      expect(textField.controller?.text ?? '', isEmpty);
     });
   });
 }

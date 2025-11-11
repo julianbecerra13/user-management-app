@@ -98,7 +98,9 @@ void main() {
       });
 
       test('debe retornar error cuando la edad es inválida (muy viejo)', () {
-        final oldDate = DateTime.now().subtract(const Duration(days: 365 * 151));
+        // Crear una fecha hace 151 años exactos
+        final now = DateTime.now();
+        final oldDate = DateTime(now.year - 151, now.month, now.day);
         final result = Validators.validateBirthDate(oldDate);
         expect(result, isNotNull);
       });
