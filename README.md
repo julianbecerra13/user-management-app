@@ -5,11 +5,11 @@ Aplicación móvil desarrollada en Flutter para la gestión de usuarios y sus di
 ## Características
 
 - ✅ Crear, editar y eliminar usuarios
-- ✅ Gestionar múltiples direcciones por usuario
-- ✅ Validación de formularios
+- ✅ Gestionar múltiples direcciones por usuario con dirección física completa
+- ✅ Validación de formularios en tiempo real
 - ✅ Persistencia de datos con SharedPreferences
-- ✅ Interfaz intuitiva y responsive
-- ✅ Selector de país, departamento y municipio
+- ✅ Interfaz futurista y responsive
+- ✅ Base de datos completa: 17 países, 100+ estados, 800+ ciudades
 
 ## Arquitectura
 
@@ -141,7 +141,9 @@ test/
 
 ### 3. Gestión de Direcciones
 - Múltiples direcciones por usuario
-- Selector de País, Departamento y Municipio
+- Campo de dirección física (calle, número, apartamento)
+- Selector de País, Departamento y Municipio con 800+ ciudades
+- Modal futurista con efectos glassmorphism
 - Agregar y eliminar direcciones
 - Vista organizada de direcciones
 
@@ -164,7 +166,8 @@ test/
   "id": "addr_123",
   "country": "Colombia",
   "state": "Antioquia",
-  "city": "Medellín"
+  "city": "Medellín",
+  "streetAddress": "Calle 123 #45-67, Apto 301"
 }
 ```
 
@@ -178,8 +181,9 @@ test/
 
 1. **Provider vs Bloc**: Se eligió Provider por su simplicidad y ser la solución recomendada oficialmente
 2. **SharedPreferences**: Suficiente para el alcance del proyecto, fácil de migrar a SQLite si se requiere
-3. **Widget Personalizado de Ubicaciones**: Implementado LocationPicker con datos de países de Latinoamérica y España
+3. **JSON Local vs API Externa**: Implementado base de datos JSON local con 800+ ciudades para mejor rendimiento, offline-first y sin dependencias externas
 4. **Clean Architecture**: Facilita mantenibilidad y testing
+5. **Diseño Futurista**: Tema personalizado con efectos glassmorphism, gradientes y animaciones para una experiencia visual moderna
 
 ## Mejoras Futuras
 
