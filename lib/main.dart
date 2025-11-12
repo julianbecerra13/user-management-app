@@ -18,7 +18,7 @@ void main() async {
   // Crear repositorio
   final IUserRepository userRepository = UserRepository(prefs);
 
-  runApp(MyApp(userRepository: userRepository));
+  runApp(MyApp(userRepository: userRepository));                                                
 }
 
 /// Aplicación principal

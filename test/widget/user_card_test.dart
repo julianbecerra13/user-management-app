@@ -28,9 +28,12 @@ void main() {
         ),
       );
 
+      // Verificar que se muestra el nombre completo
       expect(find.text('Juan Pérez'), findsOneWidget);
+      // Verificar que se muestra la edad
       expect(find.textContaining('años'), findsOneWidget);
-      expect(find.textContaining('Nacimiento:'), findsOneWidget);
+      // Verificar que se muestra la fecha de nacimiento
+      expect(find.text('01/01/1990'), findsOneWidget);
     });
 
     testWidgets('debe mostrar iniciales del usuario en el avatar',
@@ -103,7 +106,10 @@ void main() {
         ),
       );
 
-      await tester.tap(find.byType(InkWell));
+      // Buscar el GestureDetector en lugar de InkWell
+      await tester.tap(find.byType(GestureDetector));
+      await tester.pump();
+
       expect(wasTapped, isTrue);
     });
   });

@@ -1,0 +1,380 @@
+{
+  "countries": [
+    {
+      "name": "Colombia",
+      "states": [
+        {
+          "name": "Antioquia",
+          "cities": ["Medellín", "Envigado", "Itagüí", "Bello", "Rionegro", "Sabaneta", "La Estrella", "Caldas", "Copacabana", "Girardota", "Barbosa", "San Pedro de los Milagros", "Marinilla", "El Retiro", "Guarne"]
+        },
+        {
+          "name": "Cundinamarca",
+          "cities": ["Bogotá", "Soacha", "Chía", "Zipaquirá", "Facatativá", "Fusagasugá", "Madrid", "Funza", "Cajicá", "Mosquera", "Cota", "Tocancipá", "Girardot", "La Calera", "Sopó"]
+        },
+        {
+          "name": "Valle del Cauca",
+          "cities": ["Cali", "Palmira", "Buenaventura", "Tuluá", "Cartago", "Buga", "Jamundí", "Yumbo", "Candelaria", "Florida", "Pradera", "Dagua", "Sevilla", "Roldanillo", "Zarzal"]
+        },
+        {
+          "name": "Atlántico",
+          "cities": ["Barranquilla", "Soledad", "Malambo", "Sabanalarga", "Puerto Colombia", "Galapa", "Baranoa", "Juan de Acosta", "Usiacurí", "Polonuevo"]
+        },
+        {
+          "name": "Santander",
+          "cities": ["Bucaramanga", "Floridablanca", "Girón", "Piedecuesta", "Barrancabermeja", "San Gil", "Socorro", "Málaga", "Barbosa", "Vélez", "El Carmen", "Zapatoca"]
+        },
+        {
+          "name": "Bolívar",
+          "cities": ["Cartagena", "Magangué", "Turbaco", "Arjona", "El Carmen de Bolívar", "Turbaná", "María la Baja", "San Jacinto", "Mompós", "San Juan Nepomuceno"]
+        },
+        {
+          "name": "Risaralda",
+          "cities": ["Pereira", "Dosquebradas", "La Virginia", "Santa Rosa de Cabal", "Marsella", "Belén de Umbría", "Quinchía", "Santuario", "Apía", "Pueblo Rico"]
+        },
+        {
+          "name": "Quindío",
+          "cities": ["Armenia", "Calarcá", "La Tebaida", "Montenegro", "Quimbaya", "Circasia", "Filandia", "Salento", "Génova", "Pijao", "Córdoba", "Buenavista"]
+        },
+        {
+          "name": "Tolima",
+          "cities": ["Ibagué", "Espinal", "Melgar", "Honda", "Líbano", "Chaparral", "Mariquita", "Purificación", "Fresno", "Cajamarca"]
+        },
+        {
+          "name": "Norte de Santander",
+          "cities": ["Cúcuta", "Villa del Rosario", "Los Patios", "Ocaña", "Pamplona", "Villa Caro", "Chinácota", "El Zulia", "San Cayetano", "Tibú"]
+        }
+      ]
+    },
+    {
+      "name": "México",
+      "states": [
+        {
+          "name": "Ciudad de México",
+          "cities": ["Álvaro Obregón", "Azcapotzalco", "Benito Juárez", "Coyoacán", "Cuauhtémoc", "Gustavo A. Madero", "Iztacalco", "Iztapalapa", "Miguel Hidalgo", "Venustiano Carranza", "Tlalpan", "Xochimilco"]
+        },
+        {
+          "name": "Jalisco",
+          "cities": ["Guadalajara", "Zapopan", "Tlaquepaque", "Tonalá", "Puerto Vallarta", "Lagos de Moreno", "Tepatitlán", "Tlajomulco", "El Salto", "Ocotlán", "Autlán", "Ciudad Guzmán"]
+        },
+        {
+          "name": "Nuevo León",
+          "cities": ["Monterrey", "San Pedro Garza García", "Guadalupe", "San Nicolás de los Garza", "Apodaca", "Santa Catarina", "General Escobedo", "García", "Cadereyta Jiménez", "Juárez"]
+        },
+        {
+          "name": "Estado de México",
+          "cities": ["Ecatepec", "Nezahualcóyotl", "Naucalpan", "Tlalnepantla", "Toluca", "Chimalhuacán", "Cuautitlán Izcalli", "Atizapán", "Tecámac", "Ixtapaluca", "Nicolás Romero", "Coacalco"]
+        },
+        {
+          "name": "Puebla",
+          "cities": ["Puebla", "Tehuacán", "San Martín Texmelucan", "Atlixco", "Cholula", "Teziutlán", "Amozoc", "Izúcar de Matamoros", "Cuautlancingo", "Huauchinango"]
+        },
+        {
+          "name": "Guanajuato",
+          "cities": ["León", "Irapuato", "Celaya", "Salamanca", "Guanajuato", "San Francisco del Rincón", "Silao", "Pénjamo", "Valle de Santiago", "Cortazar"]
+        },
+        {
+          "name": "Veracruz",
+          "cities": ["Veracruz", "Xalapa", "Coatzacoalcos", "Córdoba", "Poza Rica", "Boca del Río", "Minatitlán", "Orizaba", "Tuxpan", "Papantla"]
+        },
+        {
+          "name": "Yucatán",
+          "cities": ["Mérida", "Valladolid", "Tizimín", "Progreso", "Umán", "Kanasín", "Motul", "Ticul", "Izamal", "Tekax"]
+        }
+      ]
+    },
+    {
+      "name": "Argentina",
+      "states": [
+        {
+          "name": "Buenos Aires",
+          "cities": ["Buenos Aires", "La Plata", "Mar del Plata", "Quilmes", "Avellaneda", "Lanús", "Lomas de Zamora", "San Isidro", "Morón", "Bahía Blanca", "Tigre", "Vicente López"]
+        },
+        {
+          "name": "Córdoba",
+          "cities": ["Córdoba", "Villa María", "Río Cuarto", "San Francisco", "Villa Carlos Paz", "Alta Gracia", "Bell Ville", "Jesús María", "Río Tercero", "La Falda"]
+        },
+        {
+          "name": "Santa Fe",
+          "cities": ["Rosario", "Santa Fe", "Rafaela", "Venado Tuerto", "Reconquista", "Villa Gobernador Gálvez", "Casilda", "Esperanza", "San Lorenzo", "Cañada de Gómez"]
+        },
+        {
+          "name": "Mendoza",
+          "cities": ["Mendoza", "Godoy Cruz", "Guaymallén", "Maipú", "San Rafael", "Las Heras", "Luján de Cuyo", "San Martín", "Tunuyán", "Rivadavia"]
+        },
+        {
+          "name": "Tucumán",
+          "cities": ["San Miguel de Tucumán", "Tafí Viejo", "Yerba Buena", "Concepción", "Banda del Río Salí", "Aguilares", "Monteros", "Famaillá"]
+        }
+      ]
+    },
+    {
+      "name": "Chile",
+      "states": [
+        {
+          "name": "Región Metropolitana",
+          "cities": ["Santiago", "Puente Alto", "Maipú", "La Florida", "San Bernardo", "Las Condes", "Providencia", "Ñuñoa", "Peñalolén", "La Reina", "Vitacura", "Lo Barnechea"]
+        },
+        {
+          "name": "Valparaíso",
+          "cities": ["Valparaíso", "Viña del Mar", "Quilpué", "Villa Alemana", "San Antonio", "Concón", "Quillota", "Los Andes", "Limache", "Casablanca"]
+        },
+        {
+          "name": "Biobío",
+          "cities": ["Concepción", "Talcahuano", "Los Ángeles", "Chillán", "Coronel", "San Pedro de la Paz", "Tomé", "Hualpén", "Lota", "Penco"]
+        },
+        {
+          "name": "Maule",
+          "cities": ["Talca", "Curicó", "Linares", "Constitución", "Cauquenes", "Parral", "Molina", "San Javier", "Colbún"]
+        }
+      ]
+    },
+    {
+      "name": "Perú",
+      "states": [
+        {
+          "name": "Lima",
+          "cities": ["Lima", "Callao", "San Juan de Lurigancho", "San Martín de Porres", "Ate", "Comas", "Villa El Salvador", "San Juan de Miraflores", "Los Olivos", "Chorrillos", "Miraflores", "San Isidro"]
+        },
+        {
+          "name": "Arequipa",
+          "cities": ["Arequipa", "Cayma", "Cerro Colorado", "Yanahuara", "Paucarpata", "Sachaca", "Characato", "Miraflores", "Tiabaya"]
+        },
+        {
+          "name": "La Libertad",
+          "cities": ["Trujillo", "Chepén", "Pacasmayo", "Casa Grande", "Chicama", "Huanchaco", "Laredo", "Moche", "Víctor Larco"]
+        },
+        {
+          "name": "Cusco",
+          "cities": ["Cusco", "Sicuani", "Urcos", "Calca", "Urubamba", "Ollantaytambo", "Pisac", "Machu Picchu", "Quillabamba"]
+        }
+      ]
+    },
+    {
+      "name": "Ecuador",
+      "states": [
+        {
+          "name": "Pichincha",
+          "cities": ["Quito", "Cayambe", "Machachi", "Sangolquí", "Tabacundo", "San Rafael", "Conocoto", "Tumbaco", "Cumbayá", "Calderón"]
+        },
+        {
+          "name": "Guayas",
+          "cities": ["Guayaquil", "Durán", "Milagro", "Daule", "Samborondón", "Playas", "El Triunfo", "Naranjal", "Balzar", "Yaguachi"]
+        },
+        {
+          "name": "Azuay",
+          "cities": ["Cuenca", "Gualaceo", "Paute", "Sigsig", "Santa Isabel", "Girón", "Nabón", "Oña", "Pucará"]
+        },
+        {
+          "name": "Manabí",
+          "cities": ["Portoviejo", "Manta", "Chone", "Montecristi", "Jipijapa", "Bahía de Caráquez", "El Carmen", "Pedernales", "Rocafuerte"]
+        }
+      ]
+    },
+    {
+      "name": "Venezuela",
+      "states": [
+        {
+          "name": "Distrito Capital",
+          "cities": ["Caracas", "Libertador", "Chacao", "Baruta", "Sucre", "El Hatillo"]
+        },
+        {
+          "name": "Miranda",
+          "cities": ["Los Teques", "Guarenas", "Guatire", "Charallave", "Ocumare del Tuy", "Cúa", "San Antonio de Los Altos", "Caucagua"]
+        },
+        {
+          "name": "Zulia",
+          "cities": ["Maracaibo", "Cabimas", "Ciudad Ojeda", "San Francisco", "Santa Rita", "La Villa del Rosario", "Machiques"]
+        },
+        {
+          "name": "Carabobo",
+          "cities": ["Valencia", "Puerto Cabello", "Guacara", "Los Guayos", "Naguanagua", "San Diego", "Tocuyito", "Mariara"]
+        }
+      ]
+    },
+    {
+      "name": "España",
+      "states": [
+        {
+          "name": "Madrid",
+          "cities": ["Madrid", "Móstoles", "Alcalá de Henares", "Fuenlabrada", "Leganés", "Getafe", "Alcorcón", "Torrejón de Ardoz", "Parla", "Alcobendas", "Las Rozas", "Pozuelo de Alarcón"]
+        },
+        {
+          "name": "Cataluña",
+          "cities": ["Barcelona", "Hospitalet de Llobregat", "Badalona", "Sabadell", "Terrassa", "Mataró", "Santa Coloma de Gramenet", "Cornellà", "Sant Boi", "Rubí", "Granollers", "Vic"]
+        },
+        {
+          "name": "Andalucía",
+          "cities": ["Sevilla", "Málaga", "Córdoba", "Granada", "Jerez de la Frontera", "Almería", "Huelva", "Marbella", "Cádiz", "Dos Hermanas", "Algeciras", "Jaén"]
+        },
+        {
+          "name": "Comunidad Valenciana",
+          "cities": ["Valencia", "Alicante", "Elche", "Castellón", "Torrevieja", "Gandia", "Orihuela", "Alcoy", "Paterna", "Sagunto", "Benidorm", "Alzira"]
+        },
+        {
+          "name": "País Vasco",
+          "cities": ["Bilbao", "Vitoria-Gasteiz", "San Sebastián", "Barakaldo", "Getxo", "Irún", "Portugalete", "Santurtzi", "Basauri", "Leioa"]
+        }
+      ]
+    },
+    {
+      "name": "Estados Unidos",
+      "states": [
+        {
+          "name": "California",
+          "cities": ["Los Angeles", "San Diego", "San Jose", "San Francisco", "Fresno", "Sacramento", "Long Beach", "Oakland", "Bakersfield", "Anaheim", "Santa Ana", "Riverside", "Stockton", "Irvine", "Fremont"]
+        },
+        {
+          "name": "Texas",
+          "cities": ["Houston", "San Antonio", "Dallas", "Austin", "Fort Worth", "El Paso", "Arlington", "Corpus Christi", "Plano", "Laredo", "Lubbock", "Irving", "Garland", "Frisco"]
+        },
+        {
+          "name": "Florida",
+          "cities": ["Jacksonville", "Miami", "Tampa", "Orlando", "St. Petersburg", "Hialeah", "Tallahassee", "Fort Lauderdale", "Port St. Lucie", "Cape Coral", "Pembroke Pines", "Hollywood"]
+        },
+        {
+          "name": "New York",
+          "cities": ["New York City", "Buffalo", "Rochester", "Yonkers", "Syracuse", "Albany", "New Rochelle", "Mount Vernon", "Schenectady", "Utica", "White Plains", "Troy"]
+        },
+        {
+          "name": "Illinois",
+          "cities": ["Chicago", "Aurora", "Rockford", "Joliet", "Naperville", "Springfield", "Peoria", "Elgin", "Waukegan", "Cicero", "Champaign", "Bloomington"]
+        }
+      ]
+    },
+    {
+      "name": "Canadá",
+      "states": [
+        {
+          "name": "Ontario",
+          "cities": ["Toronto", "Ottawa", "Mississauga", "Brampton", "Hamilton", "London", "Markham", "Vaughan", "Kitchener", "Windsor", "Richmond Hill", "Oakville", "Burlington"]
+        },
+        {
+          "name": "Quebec",
+          "cities": ["Montreal", "Quebec City", "Laval", "Gatineau", "Longueuil", "Sherbrooke", "Saguenay", "Lévis", "Trois-Rivières", "Terrebonne", "Saint-Jean-sur-Richelieu"]
+        },
+        {
+          "name": "British Columbia",
+          "cities": ["Vancouver", "Surrey", "Burnaby", "Richmond", "Abbotsford", "Coquitlam", "Kelowna", "Victoria", "Langley", "Delta", "Kamloops", "Nanaimo"]
+        },
+        {
+          "name": "Alberta",
+          "cities": ["Calgary", "Edmonton", "Red Deer", "Lethbridge", "St. Albert", "Medicine Hat", "Grande Prairie", "Airdrie", "Spruce Grove", "Fort McMurray"]
+        }
+      ]
+    },
+    {
+      "name": "Brasil",
+      "states": [
+        {
+          "name": "São Paulo",
+          "cities": ["São Paulo", "Guarulhos", "Campinas", "São Bernardo do Campo", "Santo André", "Osasco", "São José dos Campos", "Ribeirão Preto", "Sorocaba", "Santos", "Mauá", "Diadema", "Jundiaí"]
+        },
+        {
+          "name": "Rio de Janeiro",
+          "cities": ["Rio de Janeiro", "São Gonçalo", "Duque de Caxias", "Nova Iguaçu", "Niterói", "Belford Roxo", "Campos dos Goytacazes", "Petrópolis", "Volta Redonda", "Angra dos Reis"]
+        },
+        {
+          "name": "Minas Gerais",
+          "cities": ["Belo Horizonte", "Uberlândia", "Contagem", "Juiz de Fora", "Betim", "Montes Claros", "Ribeirão das Neves", "Uberaba", "Governador Valadares", "Ipatinga"]
+        },
+        {
+          "name": "Bahia",
+          "cities": ["Salvador", "Feira de Santana", "Vitória da Conquista", "Camaçari", "Itabuna", "Juazeiro", "Lauro de Freitas", "Ilhéus", "Jequié", "Teixeira de Freitas"]
+        }
+      ]
+    },
+    {
+      "name": "Uruguay",
+      "states": [
+        {
+          "name": "Montevideo",
+          "cities": ["Montevideo", "Ciudad Vieja", "Pocitos", "Carrasco", "Punta Carretas", "Malvín", "Parque Rodó", "Centro", "Cordón", "Palermo"]
+        },
+        {
+          "name": "Canelones",
+          "cities": ["Ciudad de la Costa", "Las Piedras", "Pando", "Canelones", "Santa Lucía", "Progreso", "La Paz", "Atlántida", "Sauce"]
+        },
+        {
+          "name": "Maldonado",
+          "cities": ["Maldonado", "Punta del Este", "San Carlos", "Piriápolis", "Pan de Azúcar", "Aiguá", "Solís Grande"]
+        },
+        {
+          "name": "Salto",
+          "cities": ["Salto", "Concordia", "Belén", "Constitución", "Mataojo"]
+        }
+      ]
+    },
+    {
+      "name": "Paraguay",
+      "states": [
+        {
+          "name": "Central",
+          "cities": ["Asunción", "Luque", "San Lorenzo", "Capiatá", "Lambaré", "Fernando de la Mora", "Limpio", "Ñemby", "Villa Elisa", "Mariano Roque Alonso"]
+        },
+        {
+          "name": "Alto Paraná",
+          "cities": ["Ciudad del Este", "Presidente Franco", "Hernandarias", "Minga Guazú", "Santa Rita", "Mbaracayú"]
+        },
+        {
+          "name": "Itapúa",
+          "cities": ["Encarnación", "Hohenau", "Capitán Miranda", "Bella Vista", "Fram", "Carmen del Paraná"]
+        }
+      ]
+    },
+    {
+      "name": "Bolivia",
+      "states": [
+        {
+          "name": "La Paz",
+          "cities": ["La Paz", "El Alto", "Viacha", "Achocalla", "Mecapaca", "Palca", "Pucarani"]
+        },
+        {
+          "name": "Santa Cruz",
+          "cities": ["Santa Cruz de la Sierra", "Montero", "Warnes", "La Guardia", "Cotoca", "El Torno", "Porongo"]
+        },
+        {
+          "name": "Cochabamba",
+          "cities": ["Cochabamba", "Quillacollo", "Sacaba", "Colcapirhua", "Tiquipaya", "Vinto", "Sipe Sipe"]
+        }
+      ]
+    },
+    {
+      "name": "Costa Rica",
+      "states": [
+        {
+          "name": "San José",
+          "cities": ["San José", "Desamparados", "Goicoechea", "Escazú", "Santa Ana", "Alajuelita", "Vázquez de Coronado", "Tibás", "Moravia", "Montes de Oca", "Curridabat"]
+        },
+        {
+          "name": "Alajuela",
+          "cities": ["Alajuela", "San Ramón", "Grecia", "Atenas", "Naranjo", "Palmares", "Poás", "Orotina", "Sarchí"]
+        },
+        {
+          "name": "Cartago",
+          "cities": ["Cartago", "Paraíso", "La Unión", "Jiménez", "Turrialba", "Alvarado", "Oreamuno", "El Guarco"]
+        },
+        {
+          "name": "Heredia",
+          "cities": ["Heredia", "Santo Domingo", "Santa Bárbara", "San Rafael", "San Isidro", "Belén", "Flores", "San Pablo"]
+        }
+      ]
+    },
+    {
+      "name": "Panamá",
+      "states": [
+        {
+          "name": "Panamá",
+          "cities": ["Ciudad de Panamá", "San Miguelito", "Tocumen", "Juan Díaz", "Pedregal", "Parque Lefevre", "Río Abajo", "Betania", "Bella Vista", "El Cangrejo"]
+        },
+        {
+          "name": "Panamá Oeste",
+          "cities": ["La Chorrera", "Arraiján", "Capira", "Chame", "San Carlos", "La Laguna"]
+        },
+        {
+          "name": "Colón",
+          "cities": ["Colón", "Sabanitas", "Cativá", "Cristóbal", "Rainbow City", "Portobelo"]
+        }
+      ]
+    }
+  ]
+}

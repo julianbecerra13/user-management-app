@@ -44,6 +44,7 @@ class AppConstants {
   static const String countryLabel = 'País';
   static const String stateLabel = 'Departamento';
   static const String cityLabel = 'Municipio';
+  static const String streetAddressLabel = 'Dirección Física';
 
   // Formatos
   static const String dateFormat = 'dd/MM/yyyy';

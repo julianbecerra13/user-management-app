@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../data/models/address.dart';
@@ -9,6 +10,7 @@ import '../providers/user_provider.dart';
 import '../widgets/address_card.dart';
 import '../widgets/empty_state.dart';
 import '../widgets/location_picker.dart';
+import '../widgets/custom_text_field.dart';
 
 /// Pantalla de gestión de direcciones
 /// Permite ver, agregar y eliminar direcciones de un usuario
@@ -152,7 +154,7 @@ class _AddressManagementScreenState extends State<AddressManagementScreen> {
   }
 }
 
-/// Diálogo para agregar dirección
+/// Diálogo futurista para agregar dirección
 class AddAddressDialog extends StatefulWidget {
   final String userId;
 
@@ -164,67 +166,395 @@ class AddAddressDialog extends StatefulWidget {
 
 class _AddAddressDialogState extends State<AddAddressDialog> {
   final _formKey = GlobalKey<FormState>();
+  final _streetAddressController = TextEditingController();
   String? _selectedCountry;
   String? _selectedState;
   String? _selectedCity;
   bool _isLoading = false;
 
   @override
+  void dispose() {
+    _streetAddressController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: const Text(AppConstants.addAddressTitle),
-      content: _isLoading
-          ? const SizedBox(
-              height: 100,
-              child: Center(child: CircularProgressIndicator()),
-            )
-          : SingleChildScrollView(
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    // Selector de país, estado y ciudad
-                    LocationPicker(
-                      onCountryChanged: (country) {
-                        setState(() {
-                          _selectedCountry = country;
-                        });
-                      },
-                      onStateChanged: (state) {
-                        setState(() {
-                          _selectedState = state;
-                        });
-                      },
-                      onCityChanged: (city) {
-                        setState(() {
-                          _selectedCity = city;
-                        });
-                      },
-                      countryLabel: AppConstants.countryLabel,
-                      stateLabel: AppConstants.stateLabel,
-                      cityLabel: AppConstants.cityLabel,
-                    ),
-                  ],
+    return Dialog(
+      backgroundColor: Colors.transparent,
+      child: Container(
+        constraints: const BoxConstraints(maxWidth: 600, maxHeight: 700),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(32),
+          gradient: LinearGradient(
+            colors: [
+              AppTheme.darkCard.withOpacity(0.95),
+              AppTheme.darkSurface.withOpacity(0.95),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          border: Border.all(
+            color: AppTheme.primaryCyan.withOpacity(0.3),
+            width: 1.5,
+          ),
+          boxShadow: AppTheme.glowShadow(color: AppTheme.primaryCyan),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(32),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Header
+                _buildHeader(),
+                // Content
+                Flexible(
+                  child: _isLoading ? _buildLoadingState() : _buildForm(),
+                ),
+                // Actions
+                _buildActions(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildHeader() {
+    return Container(
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        gradient: AppTheme.primaryGradient.scale(0.3),
+        border: Border(
+          bottom: BorderSide(
+            color: AppTheme.primaryCyan.withOpacity(0.2),
+            width: 1,
+          ),
+        ),
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: AppTheme.primaryGradient,
+              boxShadow: AppTheme.glowShadow(color: AppTheme.primaryCyan),
+            ),
+            child: const Icon(
+              Icons.add_location_alt,
+              size: 24,
+              color: AppTheme.darkBackground,
+            ),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  AppConstants.addAddressTitle,
+                  style: AppTheme.heading2.copyWith(
+                    fontSize: 18,
+                    color: AppTheme.textPrimary,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  'Complete la información de la dirección',
+                  style: AppTheme.bodyTextSecondary.copyWith(
+                    fontSize: 13,
+                    color: AppTheme.textSecondary,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildLoadingState() {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+              width: 60,
+              height: 60,
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  AppTheme.primaryCyan,
+                ),
+                strokeWidth: 3,
+              ),
+            ),
+            const SizedBox(height: 24),
+            ShaderMask(
+              shaderCallback: (bounds) =>
+                  AppTheme.primaryGradient.createShader(bounds),
+              child: const Text(
+                'Guardando dirección...',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
-      actions: [
-        TextButton(
-          onPressed: _isLoading ? null : () => Navigator.pop(context),
-          child: const Text(AppConstants.cancelButton),
+          ],
         ),
-        ElevatedButton(
-          onPressed: _isLoading ? null : _saveAddress,
-          child: const Text(AppConstants.saveButton),
+      ),
+    );
+  }
+
+  Widget _buildForm() {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(24),
+      child: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Campo de dirección física
+            CustomTextField(
+              label: AppConstants.streetAddressLabel,
+              hintText: 'Ej: Calle 123 #45-67, Apto 301',
+              controller: _streetAddressController,
+              validator: (value) {
+                if (value == null || value.trim().isEmpty) {
+                  return 'Por favor ingrese la dirección física';
+                }
+                if (value.trim().length < 5) {
+                  return 'La dirección debe tener al menos 5 caracteres';
+                }
+                return null;
+              },
+              prefixIcon: const Icon(Icons.home_outlined),
+              maxLines: 2,
+            ),
+            const SizedBox(height: 24),
+
+            // Divisor con texto
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    height: 1,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.transparent,
+                          AppTheme.primaryCyan.withOpacity(0.3),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: ShaderMask(
+                    shaderCallback: (bounds) =>
+                        AppTheme.primaryGradient.createShader(bounds),
+                    child: const Text(
+                      'Ubicación geográfica',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
+                        letterSpacing: 0.5,
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    height: 1,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          AppTheme.primaryCyan.withOpacity(0.3),
+                          Colors.transparent,
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 24),
+
+            // Selector de país, estado y ciudad
+            LocationPicker(
+              onCountryChanged: (country) {
+                setState(() {
+                  _selectedCountry = country;
+                });
+              },
+              onStateChanged: (state) {
+                setState(() {
+                  _selectedState = state;
+                });
+              },
+              onCityChanged: (city) {
+                setState(() {
+                  _selectedCity = city;
+                });
+              },
+              countryLabel: AppConstants.countryLabel,
+              stateLabel: AppConstants.stateLabel,
+              cityLabel: AppConstants.cityLabel,
+            ),
+          ],
         ),
-      ],
+      ),
+    );
+  }
+
+  Widget _buildActions() {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(
+            color: AppTheme.primaryCyan.withOpacity(0.2),
+            width: 1,
+          ),
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          // Botón Cancelar
+          Flexible(
+            child: Container(
+              constraints: const BoxConstraints(minWidth: 80),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                gradient: LinearGradient(
+                  colors: [
+                    AppTheme.darkCard.withOpacity(0.5),
+                    AppTheme.darkSurface.withOpacity(0.5),
+                  ],
+                ),
+                border: Border.all(
+                  color: AppTheme.primaryCyan.withOpacity(0.3),
+                  width: 1,
+                ),
+              ),
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  onTap: _isLoading ? null : () => Navigator.pop(context),
+                  borderRadius: BorderRadius.circular(16),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 12,
+                    ),
+                    child: Text(
+                      AppConstants.cancelButton,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: _isLoading
+                            ? AppTheme.textHint
+                            : AppTheme.textPrimary,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 13,
+                        letterSpacing: 0.5,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: 12),
+          // Botón Guardar
+          Flexible(
+            child: Container(
+              constraints: const BoxConstraints(minWidth: 100),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                gradient: _isLoading
+                    ? LinearGradient(
+                        colors: [
+                          AppTheme.primaryCyan.withOpacity(0.5),
+                          AppTheme.primaryPurple.withOpacity(0.5),
+                        ],
+                      )
+                    : AppTheme.primaryGradient,
+                boxShadow: _isLoading
+                    ? null
+                    : [
+                        BoxShadow(
+                          color: AppTheme.primaryCyan.withOpacity(0.4),
+                          blurRadius: 12,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+              ),
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  onTap: _isLoading ? null : _saveAddress,
+                  borderRadius: BorderRadius.circular(16),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 12,
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          Icons.save_outlined,
+                          color: AppTheme.darkBackground,
+                          size: 16,
+                        ),
+                        const SizedBox(width: 6),
+                        Flexible(
+                          child: Text(
+                            AppConstants.saveButton.toUpperCase(),
+                            textAlign: TextAlign.center,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              color: AppTheme.darkBackground,
+                              fontWeight: FontWeight.w900,
+                              fontSize: 13,
+                              letterSpacing: 0.5,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   /// Guarda la dirección
   Future<void> _saveAddress() async {
-    // Validar que se hayan seleccionado todos los campos
+    // Validar formulario
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
+
+    // Validar que se hayan seleccionado todos los campos de ubicación
     if (_selectedCountry == null ||
         _selectedCountry!.isEmpty ||
         _selectedState == null ||
@@ -232,9 +562,22 @@ class _AddAddressDialogState extends State<AddAddressDialog> {
         _selectedCity == null ||
         _selectedCity!.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Por favor complete todos los campos'),
+        SnackBar(
+          content: Row(
+            children: const [
+              Icon(Icons.warning_amber_rounded, color: Colors.white),
+              SizedBox(width: 12),
+              Expanded(
+                child:
+                    Text('Por favor complete todos los campos de ubicación'),
+              ),
+            ],
+          ),
           backgroundColor: AppTheme.errorColor,
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
         ),
       );
       return;
@@ -247,12 +590,13 @@ class _AddAddressDialogState extends State<AddAddressDialog> {
     try {
       final userProvider = context.read<UserProvider>();
 
-      // Crear nueva dirección
+      // Crear nueva dirección con dirección física
       final address = Address(
         id: IdGenerator.generateAddressId(),
         country: _selectedCountry!,
         state: _selectedState!,
         city: _selectedCity!,
+        streetAddress: _streetAddressController.text.trim(),
       );
 
       final success =
@@ -261,9 +605,21 @@ class _AddAddressDialogState extends State<AddAddressDialog> {
       if (success && mounted) {
         Navigator.pop(context);
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text(AppConstants.addressSavedMessage),
+          SnackBar(
+            content: Row(
+              children: const [
+                Icon(Icons.check_circle, color: Colors.white),
+                SizedBox(width: 12),
+                Expanded(
+                  child: Text(AppConstants.addressSavedMessage),
+                ),
+              ],
+            ),
             backgroundColor: AppTheme.successColor,
+            behavior: SnackBarBehavior.floating,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
           ),
         );
       }
